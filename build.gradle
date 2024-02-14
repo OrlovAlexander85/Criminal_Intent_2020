@@ -18,7 +18,14 @@ buildscript {
 
 plugins {
     id "jacoco"
-    id "org.sonarqube" version "3.5.0.2730”
+    id "org.sonarqube" version "4.4.1.3373"
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "OrlovAlexander85_Criminal_Intent_2020_a176a826-e6b3-4411-ad90-6aa471b7f2c4"
+    property "sonar.projectName", "Criminal_Intent_2020"
+  }
 }
  
 jacocoTestReport {
