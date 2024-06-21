@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
+import javax.crypto.spec.PBEParameterSpec;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -20,10 +20,7 @@ public class CrimeLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
-    
-    // Sonar Security rule test
-    String className = System.getProperty("messageClassName");
-    Class clazz = Class.forName(className);
+
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -78,6 +75,12 @@ public class CrimeLab {
             cursor.close();
         }
     }
+
+    // Sonar Security rule test
+    public void hash() {
+    byte[] salt = "salty".getBytes();
+    PBEParameterSpec cipherSpec = new PBEParameterSpec(salt, 10000); // Noncompliant
+}
 
     public void updateCrime(Crime crime) {
         String uuidString = crime.getmID().toString();
