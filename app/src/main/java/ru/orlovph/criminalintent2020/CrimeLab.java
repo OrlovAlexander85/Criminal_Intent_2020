@@ -20,6 +20,10 @@ public class CrimeLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
+    
+    // Sonar Security rule test
+    String className = System.getProperty("messageClassName");
+    Class clazz = Class.forName(className);
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
