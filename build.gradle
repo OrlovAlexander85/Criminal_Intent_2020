@@ -18,13 +18,14 @@ buildscript {
 
 plugins {
     id "jacoco"
-    id "org.sonarqube" version "4.4.1.3373"
+    id "org.sonarqube" version "6.0.1.5171"
 }
 
 sonar {
   properties {
-    property "sonar.projectKey", "OrlovAlexander85_Criminal_Intent_2020_a176a826-e6b3-4411-ad90-6aa471b7f2c4"
-    property "sonar.projectName", "Criminal_Intent_2020"
+    property "sonar.projectKey", "manual-org_github-project"
+    property "sonar.organization", "manual-org"
+    property "sonar.host.url", "https://dev6.sc-dev6.io"
   }
 }
  
