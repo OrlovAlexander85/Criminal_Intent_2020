@@ -36,6 +36,7 @@ public class CrimeLab {
 
     }
 
+    @Deprecated
     public void addCrime(Crime crime) {
         ContentValues values = getContentValues(crime);
 
