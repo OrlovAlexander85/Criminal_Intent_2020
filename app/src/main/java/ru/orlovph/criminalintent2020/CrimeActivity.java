@@ -1,5 +1,8 @@
 package ru.orlovph.criminalintent2020;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
