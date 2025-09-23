@@ -14,7 +14,13 @@ import java.util.Optional;
 
 import android.os.Bundle;
 
+@Deprecated
 public class CrimeActivity extends AppCompatActivity {
+
+    @Deprecated
+    private void doNothing(){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
