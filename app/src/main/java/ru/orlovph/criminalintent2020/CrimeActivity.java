@@ -8,6 +8,9 @@ import android.text.Editable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Optional;
 
 import android.os.Bundle;
 
