@@ -20,7 +20,7 @@ public class CrimeLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
-
+    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D"
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
