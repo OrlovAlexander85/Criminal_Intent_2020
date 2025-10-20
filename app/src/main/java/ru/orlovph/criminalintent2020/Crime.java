@@ -8,6 +8,7 @@ public class Crime {
     private String title;
     private Date date;
     private boolean solved;
+    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D"
 
     public Crime() {
         this(UUID.randomUUID());
