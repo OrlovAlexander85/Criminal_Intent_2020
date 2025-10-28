@@ -60,6 +60,23 @@ public class CrimeLab {
         return crimes;
     }
 
+        public List<Crime> getCrimesDuplicated() {
+        ArrayList<Crime> crimes = new ArrayList<>();
+
+        CrimeCursorWrapper cursor = queryCrimes(null,null);
+
+        try {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()){
+                crimes.add(cursor.getCrime());
+                cursor.moveToNext();
+            }
+        }finally {
+            cursor.close();
+        }
+        return crimes;
+    }
+
     public Crime getCrime(UUID id) {
         CrimeCursorWrapper cursor = queryCrimes(
                 CrimeTable.Cols.UUID + " = ?",
@@ -84,15 +101,6 @@ public class CrimeLab {
 }
 
     public void updateCrime(Crime crime) {
-        String uuidString = crime.getmID().toString();
-        ContentValues values = getContentValues(crime);
-
-        mDatabase.update(CrimeTable.NAME, values,
-                CrimeTable.Cols.UUID + " = ?",
-                new String[]{uuidString});
-    }
-
-        public void updateCrimeDuplicated(Crime crime) {
         String uuidString = crime.getmID().toString();
         ContentValues values = getContentValues(crime);
 
