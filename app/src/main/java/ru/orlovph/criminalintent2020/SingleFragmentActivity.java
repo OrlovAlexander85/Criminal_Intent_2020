@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
+    private static final String STATE_FRAGMENT_SAVED = "fragment_saved";
+    private static final int TRANSITION_DURATION = 250;
 
     // abstract method used to instantiate the fragment
     protected abstract Fragment createFragment();

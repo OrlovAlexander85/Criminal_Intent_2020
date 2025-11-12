@@ -116,4 +116,37 @@ public class CrimeLab {
         return values;
     }
 
+    // Unused helper methods for future functionality
+    private int getCrimeCountBySolved(boolean solved) {
+        List<Crime> crimes = getCrimes();
+        int count = 0;
+        for (Crime crime : crimes) {
+            if (crime.isSolved() == solved) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private Crime getRandomCrime() {
+        List<Crime> crimes = getCrimes();
+        if (crimes.isEmpty()) {
+            return null;
+        }
+        return crimes.get((int) (Math.random() * crimes.size()));
+    }
+
+    private long getAverageCrimeAge() {
+        List<Crime> crimes = getCrimes();
+        if (crimes.isEmpty()) {
+            return 0L;
+        }
+        long totalAge = 0;
+        long now = System.currentTimeMillis();
+        for (Crime crime : crimes) {
+            totalAge += now - crime.getDate().getTime();
+        }
+        return totalAge / crimes.size();
+    }
+
 }

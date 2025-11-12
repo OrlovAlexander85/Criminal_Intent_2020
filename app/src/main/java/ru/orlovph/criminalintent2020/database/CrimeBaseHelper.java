@@ -9,6 +9,8 @@ import ru.orlovph.criminalintent2020.database.CrimeDbSchema.CrimeTable;
 public class CrimeBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     private static final String DATABASE_NAME = "crimeBase.db";
+    private static final long BACKUP_INTERVAL = 86400000L;
+    private static final boolean JOURNAL_MODE_WAL = true;
 
     public CrimeBaseHelper(Context context){
         super(context, DATABASE_NAME, null, VERSION);

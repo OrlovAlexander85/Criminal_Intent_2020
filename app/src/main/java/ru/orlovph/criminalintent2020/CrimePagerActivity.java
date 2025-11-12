@@ -19,6 +19,9 @@ public class CrimePagerActivity extends AppCompatActivity {
 
     private static final String EXTRA_CRIME_ID =
             "ru.orlovph.criminalintent2020.crime_id";
+    private static final String PAGE_STATE_KEY = "pager_page";
+    private static final int DEFAULT_PAGE_INDEX = 0;
+    private static final boolean ENABLE_PAGINATION = true;
 
     private ViewPager2 mViewPager;
     private List<Crime> mCrimes;
@@ -63,5 +66,22 @@ public class CrimePagerActivity extends AppCompatActivity {
                 break;
             }
         }
+    }
+
+    // Unused utility methods
+    private int getCurrentCrimeIndex() {
+        return mViewPager.getCurrentItem();
+    }
+
+    private Crime getCurrentCrime() {
+        int index = getCurrentCrimeIndex();
+        if (index >= 0 && index < mCrimes.size()) {
+            return mCrimes.get(index);
+        }
+        return null;
+    }
+
+    private boolean hasNextCrime() {
+        return getCurrentCrimeIndex() < mCrimes.size() - 1;
     }
 }
