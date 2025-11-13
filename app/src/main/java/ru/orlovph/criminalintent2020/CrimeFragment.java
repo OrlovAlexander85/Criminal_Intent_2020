@@ -19,6 +19,8 @@ import androidx.fragment.app.FragmentManager;
 
 import java.util.Date;
 import java.util.UUID;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static android.widget.CompoundButton.*;
 
@@ -28,6 +30,8 @@ public class CrimeFragment extends Fragment {
     private static final String DIALOG_DATE = "DialogDate";
 
     private static final int REQUEST_DATE = 0;
+    private static final long SAVE_DELAY = 500L;
+    private static final int MAX_TITLE_CHARS = 500;
 
     private Crime mCrime;
     private EditText titleField;
@@ -47,7 +51,7 @@ public class CrimeFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID crimeID = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeID);
@@ -113,7 +117,7 @@ public class CrimeFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != Activity.RESULT_OK){
             return;
         }
@@ -124,5 +128,20 @@ public class CrimeFragment extends Fragment {
             mCrime.setDate(date);
             updateDate();
         }
+    }
+
+    // Unused utility methods
+    private void validateCrimeData() {
+        if (mCrime.getTitle() == null || mCrime.getTitle().isEmpty()) {
+            // Future validation logic
+        }
+    }
+
+    private void enableAutoSave() {
+        // Placeholder for auto-save functionality
+    }
+
+    private boolean isCrimeValid() {
+        return mCrime != null && mCrime.getTitle() != null && !mCrime.getTitle().isEmpty();
     }
 }

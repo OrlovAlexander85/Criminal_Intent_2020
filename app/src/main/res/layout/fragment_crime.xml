@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:tag="crime_fragment_container"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
         style="?android:listSeparatorTextViewStyle"

@@ -5,7 +5,10 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:tag="crime_list_item"
+    android:contentDescription="Crime list item"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/crime_title"

@@ -19,10 +19,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 @Deprecated
 public class CrimeListFragment extends Fragment {
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
+    private static final int RECYCLER_VIEW_POOL_SIZE = 20;
+    private static final long ITEM_UPDATE_DELAY = 100L;
+    private static final boolean ENABLE_ANIMATIONS = true;
+
     private RecyclerView crimeRecyclerView;
     private CrimeAdapter crimeAdapter;
     private boolean mSubtitleVisible;
@@ -186,5 +192,20 @@ public class CrimeListFragment extends Fragment {
         public void setCrimes(List<Crime> crimes){
             mCrimes = crimes;
         }
+    }
+
+    // Unused helper methods
+    private void sortCrimesByDate() {
+        if (crimeAdapter != null) {
+            crimeAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private void filterSolvedCrimes() {
+        // Placeholder for future filtering
+    }
+
+    private int getVisibleItemCount() {
+        return crimeRecyclerView.getChildCount();
     }
 }

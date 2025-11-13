@@ -16,6 +16,9 @@ import android.os.Bundle;
 
 @Deprecated
 public class CrimeActivity extends AppCompatActivity {
+    private static final String THEME_PREFERENCE = "theme_pref";
+    private static final int TIMEOUT_MILLIS = 5000;
+    private static final float UI_SCALE_FACTOR = 1.0f;
 
     @Deprecated
     private void doNothing(){
