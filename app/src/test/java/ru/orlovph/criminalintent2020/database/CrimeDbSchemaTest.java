@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
  * Unit tests for CrimeDbSchema
  */
 public class CrimeDbSchemaTest {
+  private String newText = "New text";
 
     @Test
     public void testCrimeTableNameExists() {
