@@ -118,4 +118,5 @@ public class CrimeFragment extends Fragment {
             updateDate();
         }
     }
+
 }

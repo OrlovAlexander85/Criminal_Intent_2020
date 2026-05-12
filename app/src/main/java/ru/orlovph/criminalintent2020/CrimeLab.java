@@ -20,7 +20,7 @@ public class CrimeLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
-
+    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D"
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -131,6 +131,39 @@ public class CrimeLab {
         values.put(CrimeTable.Cols.SOLVED, crime.isSolved() ? 1 : 0);
 
         return values;
+    }
+
+    // Unused helper methods for future functionality
+    private int getCrimeCountBySolved(boolean solved) {
+        List<Crime> crimes = getCrimes();
+        int count = 0;
+        for (Crime crime : crimes) {
+            if (crime.isSolved() == solved) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private Crime getRandomCrime() {
+        List<Crime> crimes = getCrimes();
+        if (crimes.isEmpty()) {
+            return null;
+        }
+        return crimes.get((int) (Math.random() * crimes.size()));
+    }
+
+    private long getAverageCrimeAge() {
+        List<Crime> crimes = getCrimes();
+        if (crimes.isEmpty()) {
+            return 0L;
+        }
+        long totalAge = 0;
+        long now = System.currentTimeMillis();
+        for (Crime crime : crimes) {
+            totalAge += now - crime.getDate().getTime();
+        }
+        return totalAge / crimes.size();
     }
 
 }

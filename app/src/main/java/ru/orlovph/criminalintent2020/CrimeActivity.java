@@ -16,6 +16,7 @@ import android.os.Bundle;
 
 @Deprecated
 public class CrimeActivity extends AppCompatActivity {
+    private static final String THEME_PREFERENCE = "theme_pref";
 
     @Deprecated
     private void doNothing(){

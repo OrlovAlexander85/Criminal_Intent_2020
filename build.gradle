@@ -18,21 +18,30 @@ buildscript {
 
 plugins {
     id "jacoco"
-    id "org.sonarqube" version "6.0.1.5171"
+    id "org.sonarqube" version "4.0.0.2929"
 }
 
 sonar {
   properties {
-    property "sonar.projectKey", "manual-org_github-project"
-    property "sonar.organization", "manual-org"
-    property "sonar.host.url", "https://dev6.sc-dev6.io"
+    property "sonar.projectKey", "ru.orlovph.criminalintent2020"
+    property "sonar.projectName", "Criminal Intent 2020"
+    property "sonar.organization", "your-sonarcloud-organization"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.sources", "app/src/main/java"
+    property "sonar.tests", "app/src/test/java"
+    property "sonar.java.source", "11"
+    property "sonar.java.target", "11"
+    property "sonar.java.coveragePlugin", "jacoco"
+    property "sonar.coverage.jacoco.xmlReportPaths", "app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+    property "sonar.exclusions", "**/R.java,**/BuildConfig.java,**/generated/**"
+    property "sonar.coverage.exclusions", "**/R.java,**/BuildConfig.java"
   }
 }
- 
+
 jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
+  reports {
+    xml.required = true
+  }
 }
 
 allprojects {
