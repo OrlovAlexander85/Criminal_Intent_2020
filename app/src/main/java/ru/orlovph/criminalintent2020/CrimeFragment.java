@@ -130,6 +130,41 @@ public class CrimeFragment extends Fragment {
         }
     }
 
+    // S3776 - cognitive complexity: deeply nested conditions
+    private String buildCrimeSummary() {
+        String summary = "";
+        if (mCrime != null) {
+            if (mCrime.getTitle() != null) {
+                if (!mCrime.getTitle().isEmpty()) {
+                    if (mCrime.isSolved()) {
+                        if (mCrime.getDate() != null) {
+                            if (mCrime.getDate().getTime() > 0) {
+                                summary = "Solved: " + mCrime.getTitle();
+                            } else {
+                                summary = "Solved (no date): " + mCrime.getTitle();
+                            }
+                        }
+                    } else {
+                        if (mCrime.getDate() != null) {
+                            summary = "Unsolved: " + mCrime.getTitle();
+                        } else {
+                            summary = "Unsolved (no date): " + mCrime.getTitle();
+                        }
+                    }
+                }
+            }
+        }
+        return summary;
+    }
+
+    // S108 - empty catch block swallows exception silently
+    private void persistCrimeLocally() {
+        try {
+            CrimeLab.get(getActivity()).updateCrime(mCrime);
+        } catch (Exception e) {
+        }
+    }
+
     // Unused utility methods
     private void validateCrimeData() {
         if (mCrime.getTitle() == null || mCrime.getTitle().isEmpty()) {
