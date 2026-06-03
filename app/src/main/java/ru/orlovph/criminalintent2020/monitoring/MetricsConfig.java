@@ -1,4 +1,4 @@
-package ru.orlovph.criminalintent2020.monitoring;
+  ppackage ru.orlovph.criminalintent2020.monitoring;
 
   /**
    * Micrometer metrics configuration.

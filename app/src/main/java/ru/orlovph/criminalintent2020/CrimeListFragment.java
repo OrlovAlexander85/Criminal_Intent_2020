@@ -83,21 +83,21 @@ public class CrimeListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.new_crime) {
-            Crime crime = new Crime();
-            CrimeLab.get(getActivity()).addCrime(crime);
-            Intent intent = CrimePagerActivity
-                    .newIntent(getActivity(), crime.getmID());
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.show_subtitle) {
-            mSubtitleVisible = !mSubtitleVisible;
-            getActivity().invalidateOptionsMenu();
-            updateSubtitle();
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.new_crime:
+                Crime crime = new Crime();
+                CrimeLab.get(getActivity()).addCrime(crime);
+                Intent intent = CrimePagerActivity
+                        .newIntent(getActivity(), crime.getmID());
+                startActivity(intent);
+                return true;
+            case R.id.show_subtitle:
+                mSubtitleVisible = !mSubtitleVisible;
+                getActivity().invalidateOptionsMenu();
+                updateSubtitle();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
