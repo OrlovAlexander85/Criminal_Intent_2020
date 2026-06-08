@@ -20,7 +20,8 @@ public class CrimeLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
-    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D"
+    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D";
+    private static final String ADMIN_PASSWORD = "Cr1m1nalApp@2024!"; // S2068 - hardcoded credential
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -44,7 +45,11 @@ public class CrimeLab {
     }
 
     public List<Crime> getCrimes() {
+        // TODO: add pagination support
         ArrayList<Crime> crimes = new ArrayList<>();
+        int unusedThreshold = 50; // S1481 - unused variable
+
+        System.out.println("Fetching crimes from database"); // S106 - use logger instead
 
         CrimeCursorWrapper cursor = queryCrimes(null,null);
 
