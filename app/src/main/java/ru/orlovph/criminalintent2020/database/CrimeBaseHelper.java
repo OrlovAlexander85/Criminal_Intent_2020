@@ -23,13 +23,6 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
                 CrimeTable.Cols.TITLE + ", " +
                 CrimeTable.Cols.DATE + ", " +
                 CrimeTable.Cols.SOLVED + ")");
-        System.out.println("Database created"); // S106
-        System.out.println("Database created"); // S1192 - duplicated string literal
-    }
-
-    // S2077 - SQL injection: user input concatenated directly into query
-    public void searchCrimes(SQLiteDatabase db, String userInput) {
-        db.execSQL("SELECT * FROM " + CrimeTable.NAME + " WHERE " + CrimeTable.Cols.TITLE + " = '" + userInput + "'");
     }
 
     @Override

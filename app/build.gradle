@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
 android {
-    namespace "ru.orlovph.criminalintent2020"
-    compileSdk 34
+    compileSdkVersion 34
+    buildToolsVersion "34.0.2"
     ndkVersion "25.1.8937393"
 
     defaultConfig {
         applicationId "ru.orlovph.criminalintent2020"
-        minSdk 34
-        targetSdk 34
+        minSdkVersion 34
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -21,7 +21,7 @@ android {
         debug {
             debuggable true
             minifyEnabled false
-            enableAndroidTestCoverage true
+            testCoverageEnabled true
         }
         release {
             minifyEnabled false
@@ -61,17 +61,6 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.core:core:1.3.2'
 
-    // === SCA VALIDATION — known-CVE deps, do NOT use in production ===
-    // CVE-2019-17571, CVE-2022-23302, CVE-2022-23305 (log4j 1.x RCE/deserialization)
-    implementation 'log4j:log4j:1.2.17'
-    // CVE-2015-6420, CVE-2017-15708 (Commons Collections deserialization RCE)
-    implementation 'commons-collections:commons-collections:3.1'
-    // CVE-2019-14379, CVE-2020-24616, CVE-2020-36518 (Jackson polymorphic deserialization)
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
-    // CVE-2022-25647 (Gson deserialization DoS)
-    implementation 'com.google.code.gson:gson:2.8.0'
-    // === END SCA VALIDATION ===
-
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.jacoco:org.jacoco.core:0.8.8'
 
@@ -85,9 +74,9 @@ jacoco {
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
     reports {
-        xml.required = true
-        html.required = true
-        csv.required = false
+        xml.enabled = true
+        html.enabled = true
+        csv.enabled = false
     }
 
     fileTree(dir: "$buildDir/intermediates/javac/debug/classes", includes: ['**/ru/orlovph/criminalintent2020/**']).each { file ->
