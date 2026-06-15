@@ -20,9 +20,7 @@ public class CrimeActivity extends AppCompatActivity {
 
     @Deprecated
     private void doNothing(){
-
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
