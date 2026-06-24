@@ -194,6 +194,21 @@ public class CrimeListFragment extends Fragment {
         }
     }
 
+    // S2975 - BUG MAJOR: clone() does not call super.clone() — breaks clone contract
+    @Override
+    public CrimeListFragment clone() {
+        // Noncompliant: must call super.clone() instead of creating new instance manually
+        return new CrimeListFragment();
+    }
+
+    // S1226 - CODE_SMELL MINOR: method parameter 'crimes' is reassigned — hides original value
+    private void loadCrimes(List<Crime> crimes) {
+        crimes = new ArrayList<>(crimes); // Noncompliant: reassigning parameter shadows caller's reference
+        if (crimeAdapter != null) {
+            crimeAdapter.setCrimes(crimes);
+        }
+    }
+
     // Unused helper methods
     private void sortCrimesByDate() {
         if (crimeAdapter != null) {

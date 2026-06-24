@@ -50,6 +50,7 @@ public class CrimeLab {
         int unusedThreshold = 50; // S1481 - unused variable
 
         System.out.println("Fetching crimes from database"); // S106 - use logger instead
+        System.out.println("Using secret: " + secret); // S5145 - VULNERABILITY CRITICAL: sensitive data (secret) exposed in logs
 
         CrimeCursorWrapper cursor = queryCrimes(null,null);
 
