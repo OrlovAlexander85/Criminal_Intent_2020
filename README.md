@@ -19,6 +19,9 @@ Findings flagged by static analysis in these packages are expected by design.
 The production application code lives in the root package only.
 
 
+
 ## Setup
+
+
 
 Standard Android project — open in Android Studio, sync Gradle, run on emulator.
