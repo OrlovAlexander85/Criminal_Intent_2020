@@ -25,3 +25,5 @@ The production application code lives in the root package only.
 
 
 Standard Android project — open in Android Studio, sync Gradle, run on emulator.
+
+
