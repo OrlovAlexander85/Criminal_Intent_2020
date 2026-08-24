@@ -75,4 +75,24 @@ public class Crime {
         long ageInDays = (System.currentTimeMillis() - date.getTime()) / (1000 * 60 * 60 * 24);
         return Math.min((int) (ageInDays / 30), 10);
     }
+
+    // S1125 - CODE_SMELL MINOR: redundant boolean literal comparison
+    public boolean isSolvedRedundant() {
+        return solved == true; // Noncompliant: use isSolved() directly
+    }
+
+    // S1172 - CODE_SMELL MINOR: unused method parameter 'format'
+    public String getFormattedTitle(String format, int maxLength) {
+        if (title == null) {
+            return DEFAULT_TITLE;
+        }
+        return title.length() > maxLength ? title.substring(0, maxLength) : title;
+        // 'format' parameter is never used
+    }
+
+    // S2259 - BUG BLOCKER: potential null dereference
+    public int getTitleLength() {
+        // title can be null (never initialized, no null check)
+        return title.length(); // Noncompliant: NullPointerException if title is null
+    }
 }

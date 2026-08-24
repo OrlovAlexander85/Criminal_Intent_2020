@@ -157,6 +157,16 @@ public class CrimeFragment extends Fragment {
         return summary;
     }
 
+    // S2583 - BUG MAJOR: condition always evaluates to true — dead code
+    private boolean isCrimeReportable(Crime crime) {
+        boolean hasTitle = crime.getTitle() != null;
+        boolean isEmpty = false; // always false — never reassigned
+        if (hasTitle && !isEmpty) { // Noncompliant: !isEmpty is always true
+            return true;
+        }
+        return false; // dead code — unreachable
+    }
+
     // S108 - empty catch block swallows exception silently
     private void persistCrimeLocally() {
         try {
