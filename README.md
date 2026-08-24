@@ -1,4 +1,5 @@
 # Criminal Intent 2020 — AppSec Training Sandbox
+[![software_quality_security_issues](https://sonarcloud.io/api/project_badges/measure?project=orlovgithuborg_vulnerable-node&metric=software_quality_security_issues)](https://sonarcloud.io/summary/new_code?id=orlovgithuborg_vulnerable-node)
 
 Android project built from Big Nerd Ranch Guide, 3rd Edition, extended as an internal
 security awareness training application.
