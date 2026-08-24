@@ -28,3 +28,4 @@ The production application code lives in the root package only.
 Standard Android project — open in Android Studio, sync Gradle, run on emulator.
 
 
+FaketToken=6jV1QhZhkKdwBbpDjPqgjOulQ5EUeouydEgX81xLmcBIT5Ohi4wgvqDt4pPAbliO

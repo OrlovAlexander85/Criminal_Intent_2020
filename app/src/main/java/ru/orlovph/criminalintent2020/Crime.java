@@ -11,6 +11,7 @@ public class Crime {
     private String title;
     private Date date;
     private boolean solved;
+    private String secret = "G7kA50FAgdJoykXzA2zh4oh0XZjFaZCWGRZqYpCylWm35coOdIQb9O4QxHrcms2D"
 
     // Unused constants for testing
     private static final int MAX_TITLE_LENGTH = 255;

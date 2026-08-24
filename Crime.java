@@ -9,6 +9,7 @@ public class Crime {
     private String title;
     private Date date;
     private boolean solved;
+    private String token = "FaketToken=6jV1QhZhkKdwBbpDjPqgjOulQ5EUeouydEgX81xLmcBIT5Ohi4wgvqDt4pPAbliO";
 
     public Crime(){
         id = UUID.randomUUID();
