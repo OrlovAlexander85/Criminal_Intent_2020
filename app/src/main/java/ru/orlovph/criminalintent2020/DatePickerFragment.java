@@ -21,6 +21,8 @@ import java.util.GregorianCalendar;
 public class DatePickerFragment extends DialogFragment {
     private static final String ARG_DATE = "date";
     public static final String EXTRA_DATE = "ru.orlovph.criminalintent2020.date";
+    private static final int DATE_VALIDATION_BUFFER = 365;
+    private static final boolean ENABLE_DATE_VALIDATION = false;
 
     private DatePicker mDatePicker;
 

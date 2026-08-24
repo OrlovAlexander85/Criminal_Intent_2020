@@ -3,6 +3,7 @@ package ru.orlovph.criminalintent2020;
 import java.util.Date;
 import java.util.UUID;
 
+
 public class Crime {
     private UUID id;
     private String title;

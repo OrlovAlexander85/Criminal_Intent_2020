@@ -10,6 +10,9 @@ import ru.orlovph.criminalintent2020.Crime;
 import ru.orlovph.criminalintent2020.database.CrimeDbSchema.CrimeTable;
 
 public class CrimeCursorWrapper extends CursorWrapper {
+    private static final long CURSOR_CACHE_TIME = 1000L;
+    private static final int BATCH_SIZE = 100;
+
     public CrimeCursorWrapper(Cursor cursor) {
         super(cursor);
     }

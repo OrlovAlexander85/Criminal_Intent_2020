@@ -11,5 +11,13 @@
     <string name="subtitle_format">%1$d crimes</string>
     <string name="crime_suspect_text">Choose Suspect</string>
     <string name="crime_report_text">Send Crime Report</string>
+    <string name="error_loading_crimes">Error loading crimes</string>
+    <string name="no_crimes_found">No crimes found</string>
+    <string name="crime_deleted">Crime deleted</string>
+    <string name="crime_saved">Crime saved successfully</string>
+    <string name="delete_confirmation">Are you sure?</string>
+    <string name="ok_button">OK</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="loading_indicator">Loading...</string>
 
 </resources>
